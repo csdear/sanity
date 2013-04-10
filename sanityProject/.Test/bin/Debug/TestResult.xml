@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="\\Stuartd-laptop\selenium\sanityProject\.Test\bin\Debug\_.Test.dll" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-09" time="16:05:44">
+  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.3643" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="\\Stuartd-laptop\selenium\sanityProject\.Test\bin\Debug" machine-name="QA1" user="stuartd" user-domain="STRONG" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="\\Stuartd-laptop\selenium\sanityProject\.Test\bin\Debug\_.Test.dll" executed="True" result="Failure" success="False" time="71.231" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="Test" executed="True" result="Failure" success="False" time="71.215" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="InvPaginationLinks" executed="True" result="Failure" success="False" time="71.199" asserts="0">
+            <results>
+              <test-case name="Test.InvPaginationLinks.TestComponent" executed="True" result="Error" success="False" time="71.137" asserts="1">
+                <failure>
+                  <message><![CDATA[OpenQA.Selenium.NoSuchElementException : Unable to locate element: {"method":"xpath","selector":"/html/body/div[8]/div/a/span"}]]></message>
+                  <stack-trace><![CDATA[at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\Remote\RemoteWebDriver.cs:line 985
+at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\Remote\RemoteWebDriver.cs:line 846
+at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\Remote\RemoteWebDriver.cs:line 877
+at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\Remote\RemoteWebDriver.cs:line 664
+at OpenQA.Selenium.By.<>c__DisplayClasse.<XPath>b__c(ISearchContext context) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\By.cs:line 164
+at OpenQA.Selenium.By.FindElement(ISearchContext context) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\By.cs:line 306
+at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\Remote\RemoteWebDriver.cs:line 330
+at Test.InvPaginationLinks.TestComponent() in C:\Program Files\Selenium\sanityProject\.Test\InvLinkTest.cs:line 61
+]]></stack-trace>
+                </failure>
+              </test-case>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

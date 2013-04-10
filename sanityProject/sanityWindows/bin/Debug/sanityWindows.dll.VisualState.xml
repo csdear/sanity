@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1002]\\Stuartd-laptop\selenium\sanityProject\sanityWindows\bin\Debug\sanityWindows.dll</TopNode>
+  <SelectedNode>[0-1001]sanitySetup.SanityWindowsTest.SanityWindows</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1002]\\Stuartd-laptop\selenium\sanityProject\sanityWindows\bin\Debug\sanityWindows.dll" Expanded="true" />
+    <Node UniqueName="[0-1003]sanitySetup" Expanded="true" />
+    <Node UniqueName="[0-1000]sanitySetup.SanityWindowsTest" Expanded="true" />
+  </Nodes>
+</VisualState>

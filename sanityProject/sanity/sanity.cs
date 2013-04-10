@@ -79,6 +79,7 @@ namespace sanity
             // AAQ Form Window Loaded and Closed
             driver.FindElement(By.CssSelector("a.tab-offers-link > span")).Click();
             // Warning: verifyTextPresent may require manual changes
+            //test
             try
             {
                 Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Featured Offers[\\s\\S]*$"));

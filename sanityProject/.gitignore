@@ -1,3 +1,5 @@
+
+## Change 4/10/2013  -- Commenting out all bin/, debug,[d]debug related repressions.  
 #################
 ## Eclipse
 #################
@@ -5,7 +7,7 @@
 *.pydevproject
 .project
 .metadata
-bin/
+# bin/
 tmp/
 *.tmp
 *.bak
@@ -42,7 +44,7 @@ local.properties
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
+# [Dd]ebug/
 [Rr]elease/
 *_i.c
 *_p.c
@@ -97,7 +99,7 @@ DocProject/Help/html
 publish
 
 # Others
-[Bb]in
+# [Bb]in
 [Oo]bj
 sql
 TestResults
@@ -140,7 +142,7 @@ dist
 build
 eggs
 parts
-bin
+# bin
 var
 sdist
 develop-eggs
