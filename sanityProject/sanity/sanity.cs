@@ -69,35 +69,40 @@ namespace sanity
             // Dealer Changed
             Thread.Sleep(10000);
             //Select Ask A Question button.  
-            //[F: Not Visibledriver.FindElement(By.Id("askaquestion")).Click();
+            
             driver.FindElement(By.ClassName("btn")).Click();
             Thread.Sleep(10000);
-            //***Common intermittent fail area when attempting to hit "tab-sms-link" -- driver.FindElement(By.CssSelector("li.questionemail")).Click();
             driver.FindElement(By.ClassName("tab-sms-link")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("span.ui-icon.ui-icon-closethick")).Click();
             // AAQ Form Window Loaded and Closed
             driver.FindElement(By.CssSelector("a.tab-offers-link > span")).Click();
-            // Warning: verifyTextPresent may require manual changes
             
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Featured Offers[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Featured Offers')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
             driver.FindElement(By.CssSelector("a.tab-resources-link > span")).Click();
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Finance Tools[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Finance Tools')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             // Content Loaded Tabs View Offers and Helpful Resources Verified
             driver.FindElement(By.CssSelector("a.tab-lineup-link > span")).Click();
             driver.FindElement(By.CssSelector("li.forward-button > a")).Click();
@@ -110,272 +115,282 @@ namespace sanity
             driver.FindElement(By.CssSelector("li.forward-button > a")).Click();
             driver.FindElement(By.CssSelector("li.forward-button > a")).Click();
             driver.FindElement(By.CssSelector("li.forward-button > a")).Click();
-            //driver.FindElement(By.CssSelector("li.forward-button > a")).Click();
-            //driver.FindElement(By.CssSelector("html.js body.en div#Page div#Content div#MainContent div.tabs div.tab-content div#ToyotaLineup.ui-tabs-panel div#FamilyCarousel.carousel ul.items li.item img")).Click();
             // Carousel Arrow Functions Verified.
-         
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Scion[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Scion')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
             
             // [Scion] Carousel Tier 2 Load verified.  
-            
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(60));
-            //Fail : 20130221:9:00.  Doubled wait time to 60 seconds.  
-            //Fail2 : 20130221:9:00.  Doubled wait time to 60 seconds. Exception -- No response from server? Trouble selecting
-            //Attempting to use new extension code -- two methods provided to be tested. Unable to get it to work
-            //Attempting explicit Thread.Sleep() methods for 10 second wait.   After and before selection of element.Thread.Sleep(10000);  
-            //Attempitng Sleeper Code again...
-            // FINAL ATTEMPT FORCE URL driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/#family=Scion&series=2012+Scion+xB");
-            /*for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if (IsElementPresent(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/ul/li[7]/img"))) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }*/
-            //driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/ul/li[7]/img")).Click();         
-            
-            
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
 
-            for (int second = 0; ; second++)
-            {
-                if (second >= 60) Assert.Fail("timeout");
-                try
-                {
-                    if (IsElementPresent(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/ul/li[7]/img"))) break;
-                }
-                catch (Exception)
-                { }
-                Thread.Sleep(1000);
-            }
-            //Fail : 20130221:9:03.  inserting 10 seconds implicitwait.    
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+            Thread.Sleep(10000);
+                
             driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/ul/li[7]/img")).Click();       
             //driver.FindElement(By.CssSelector("img[alt=\"2012 Scion xB\"]")).Click();
             // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Scion[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Scion')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
             
             // 3rd Tier [2012 Scion XB] load verified.
             // ***Begin 3rd Tier Link Tests***  
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
-            driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/#family=Scion&series=2012+Scion+xB");
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
             Thread.Sleep(10000);
-            //Fail 2/282013 -  Unable to Locate element - Xpath.. attempting findelemnt by css selector.  
-            //driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div[5]/div/div[3]/ul/li/a")).Click();
-            //Located appropriate class designation to select -- 2nd tier image lin is 'img.sg_selected'.
-            //first attempt P/F by CssSelector. if F, 2nd attempt by className.  
-            //Fail 2/28/2013 11:10AM --- NoSuchElementException : css selector img_sg selected'
-            //Failed -->>driver.FindElement(By.CssSelector("img.sg_selected")).Click();
-            //Failed -- driver.FindElement(By.ClassName("img.sg_selected")).Click();
-            //Success!
+            driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/#family=Scion&series=2012+Scion+xB");
+            Thread.Sleep(10000);
             driver.FindElement(By.XPath("//img[@alt='2013 Scion xB']")).Click();
             
             // Warning: verifyTextPresent may require manual changes
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Models & Features[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Models & Features')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.Navigate().Back();
             driver.FindElement(By.XPath("//img[@alt='2013 Scion xB']")).Click();
+            
             //Browse Models  
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
-            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=models']"));  
-            //failing intermittently :  driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div[5]/div/div[3]/ul/li[2]/a")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
+            Thread.Sleep(10000);
+            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=models']"));
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Colors[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Colors')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.Navigate().Back();
-            //Fail 2/28/2013 -- 11:43 AM  LAST ON.  Inserting implicit wait.
-            // 2nd fail despite wait... changeing xpath.  This appears to be the 3rd Tier 'View Gllery' link.   
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
-            //driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div[5]/div/div[3]/ul/li[3]/a")).Click();
-            //it appears on the navigate back action, user was taken back to 2nd tier for some reason?  Going to select the Scion xB explicitly again
+            Thread.Sleep(10000);
             driver.FindElement(By.XPath("//img[@alt='2013 Scion xB']")).Click();
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
+            Thread.Sleep(10000);
             driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=photos']"));
 
-
-            // Warning: verifyTextPresent may require manual changes
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Gallery[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Gallery')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.Navigate().Back();
             Thread.Sleep(10000);
             driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div[5]/div/div[3]/ul/li[4]/a")).Click();
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Accessories [\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Accessories ')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            //fail-- for some reason back is taking user to 2nd tier now. Adjusting.  
+
             driver.Navigate().Back();
             Thread.Sleep(5000);
             driver.FindElement(By.XPath("//img[@alt='2013 Scion xB']")).Click();
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
+            Thread.Sleep(10000);
             driver.FindElement(By.XPath("//a[contains(text(),'View Offers')]")).Click();
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*2012 Offers[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'2012 Offers')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
             driver.Navigate().Back();
             //Assumption user will be sent back to 2nd tier...  
             driver.FindElement(By.XPath("//img[@alt='2013 Scion xB']")).Click();
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(30));
+            Thread.Sleep(5000);
             driver.FindElement(By.XPath("//a[contains(text(),'See Options')]")).Click();
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Accessories9 [\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Accessories')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             // ***End 3rd Tier Link Tests***
             // ***Begin Navigation Back Carousel. 3rd tier to 2nd Tier***
             driver.Navigate().Back();
+            
             driver.FindElement(By.CssSelector("a.families-back-link")).Click();
-            // Warning: verifyTextPresent may require manual changes
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*The Family Lineup[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'The Family Lineup')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             // ***End Back Navigation Carousel.  ***  
+            
             // ***Begin View Offers Tab***
             driver.FindElement(By.CssSelector("a.tab-offers-link > span")).Click();
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Featured Offers[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Featured Offers')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.FindElement(By.LinkText("Next")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.LinkText("Prev")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.LinkText("Details")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
+            
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Ask a Question[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Ask a Question')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // ERROR: Caught exception [ERROR: Unsupported command [runScript | $(".ui-dialog-titlebar-close").click() | ]]
+            
+            
             driver.FindElement(By.LinkText("Find One")).Click();
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*New Inventory[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'New Inventory')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.Navigate().Back();
+            
             // Begin Helpful Resources 
             driver.FindElement(By.CssSelector("a.tab-resources-link > span")).Click();
-            // Warning: verifyTextPresent may require manual changes
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Helpful Resources[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Helpful Resources')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.FindElement(By.LinkText("Payment Calculator")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Calculate Your Payment[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Calculate Your Payment')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.FindElement(By.CssSelector("button.exit")).Click();
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+            Thread.Sleep(5000);
             driver.FindElement(By.LinkText("Lease vs. Purchase")).Click();
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Lease vs Purchase[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Lease Vs Purchase')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
             driver.FindElement(By.CssSelector("button.exit")).Click();
-            //FailStopTest 2/20/2013 -- introducing imp wait 20 seconds.  
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));
+            Thread.Sleep(10000);
             driver.FindElement(By.LinkText("Right Vehicle For Your Budget")).Click();
-            // Warning: verifyTextPresent may require manual changes
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Find the Right Toyota[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Find the Right Toyota')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+            Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("button.exit")).Click();
-            //StopTestError -  2202013 3:51 PM
-            // 3rd instance of this happening..  Placing 10 second implicit wait behind each link.
+            Thread.Sleep(5000);
             driver.FindElement(By.LinkText("Credit Application")).Click();
+            Thread.Sleep(5000);
+            
             try
             {
                 Assert.IsTrue(IsElementPresent(By.Id("CreditApplication")));
@@ -384,8 +399,10 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
-            driver.FindElement(By.CssSelector("button.exit")).Click();
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(40));
+
+            driver.FindElement(
+            By.CssSelector("button.exit")).Click();
+            Thread.Sleep(5000);
             driver.FindElement(By.LinkText("Glossary Of Terms")).Click();
             try
             {
@@ -395,31 +412,30 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
+            
             driver.FindElement(By.CssSelector("button.exit")).Click();
-            //Fail 2/20/2013 3:20 PM -- NoSuchElementException -- Schedule An Appointmnet.
-            //implicit wait implemented.
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(20));
+            Thread.Sleep(10000);
             driver.FindElement(By.LinkText("Schedule An Appointment")).Click(); 
-            // ERROR: Caught exception [Error: unknown strategy [alt] for locator [alt=Schedule Your Service]]
             driver.FindElement(By.CssSelector("button.exit")).Click();
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+            Thread.Sleep(10000);
             driver.FindElement(By.LinkText("View Service Specials")).Click();
-            // ERROR: Caught exception [Error: unknown strategy [alt] for locator [alt=Schedule Your Service]]
             driver.FindElement(By.CssSelector("button.exit")).Click();
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
+            Thread.Sleep(5000);
             driver.FindElement(By.LinkText("View Accessory Catalog")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Accessory Catalog[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Accessory Catalog')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // ERROR: Caught exception [ERROR: Unsupported command [runScript | $(".ui-dialog-titlebar-close").click() | ]]
-            // Comparison Tools / Advanstar Hyperlink.  
-            //Close window issue found here... Two options.. going to see if either work.    
+            
+            // Comparison Tools / Advantastar Hyperlink.  
             
             driver.FindElement(By.LinkText("close")).Click();
             Thread.Sleep(5000);
@@ -435,15 +451,9 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
-            Thread.Sleep(5000);
-            //[F: Unable to Locate : driver.FindElement(By.ClassName("exit")).Click();
-
-                  	
             
-            //test
             Thread.Sleep(5000);
-            driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromSeconds(10));
-            // ERROR: Caught exception [ERROR: Unsupported command [deleteAllVisibleCookies |  | ]]
+                  	
             driver.Navigate().Back();
 
 //Helpful Resource popup sanityWindows injection
@@ -456,10 +466,13 @@ namespace sanity
 
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Toyota Owners[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Toyota Owners')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
 
@@ -538,17 +551,17 @@ namespace sanity
             driver.Close();
             driver.SwitchTo().Window(parentWindow);
             driver.FindElement(By.LinkText("Glossary Of Terms")).Click();
-            //WaitForAjaxElement(driver, By.LinkText("Glossary of Terms"), 30);
             driver.FindElement(By.ClassName("exit")).Click();
             Thread.Sleep(5000);
 
-//END HR popupwindow sanityWindow .   
+             //End Helpful Resources popupwindow sanityWindow .   
             
             
             
-////////////////// Begin PreOwned General Link Verification
+            // Begin PreOwned General Link Verification
             
             driver.FindElement(By.LinkText("Search Inventory")).Click();
+            
             try
             {
                 Assert.IsTrue(IsElementPresent(By.Id("CertifiedTab")));
@@ -557,22 +570,28 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
+
             driver.Navigate().Back();
             // End PreOwned General Link Verification
+            
             driver.FindElement(By.LinkText("What is a Certified Pre-owned Vehicle?")).Click();
             // Warning: verifyTextPresent may require manual changes
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Toyota Certified Program[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Toyota Certified Program')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
             driver.Navigate().Back();
             // Footer Area
             driver.Navigate().Back();
             driver.FindElement(By.CssSelector("a.AboutSetLink.modal-link > span")).Click();
+            
             try
             {
                 Assert.IsTrue(IsElementPresent(By.Id("ui-dialog-title-AboutSetModal")));
@@ -581,9 +600,9 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
-            // ERROR: Caught exception [ERROR: Unsupported command [runScript | $(".ui-dialog-titlebar-close").click() | ]]
+            
             driver.FindElement(By.LinkText("Privacy Policy")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [selectPopUp |  | ]]
+            
             try
             {
                 Assert.AreEqual("PrivacyPolicy-en.pdf (application/pdf Object)", driver.Title);
@@ -593,9 +612,8 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
             
-            // ERROR: Caught exception [ERROR: Unsupported command [runScript | $(".ui-dialog-titlebar-close").click() | ]]
             driver.FindElement(By.LinkText("Toyota")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [selectPopUp |  | ]]
+            
             try
             {
                 Assert.AreEqual("Toyota Cars, Trucks, SUVs & Hybrids | Toyota Official Site", driver.Title);
@@ -604,12 +622,12 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
-            // ERROR: Caught exception [ERROR: Unsupported command [selectPopUp |  | ]]
+            
             Thread.Sleep(2000);
-            // Footer link to Toyota National verified.  
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow |  | ]]
+            //End Footer link Area  
+            
             driver.FindElement(By.LinkText("SET Finance")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [selectPopUp |  | ]]
+            
             try
             {
                 Assert.AreEqual("Southeast Toyota Finance - Home", driver.Title);
@@ -618,8 +636,9 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
+            
             Thread.Sleep(2000);
-            // ERROR: Caught exception [ERROR: Unsupported command [selectWindow |  | ]]
+            
             driver.FindElement(By.LinkText("Espanol")).Click();
             try
             {
@@ -629,20 +648,12 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
+            
             Thread.Sleep(2000);
             driver.Navigate().Back();
             Thread.Sleep(2000);
-            //driver.FindElement(By.LinkText("English")).Click();
-            //might have to implement window switching  code right here...   
-            
-            //actually I do not thinkg the window switching code is necessary here.  Naviage back will suffice, as a new target
-            //window is NOT opened. Commenting out all window handling code for mobile.   
             driver.FindElement(By.LinkText("Mobile")).Click();
             Thread.Sleep(5000);
-            //calling the finder object to do its magic once again.  
-            //parentWindow = driver.CurrentWindowHandle;  
-            //newHandle = finder.Click(driver.FindElement(By.LinkText("Mobile")));
-            //driver.SwitchTo().Window(newHandle);
             
             try
             {
@@ -654,12 +665,9 @@ namespace sanity
             }
 
             driver.Navigate().Back(); 
-            //driver.SwitchTo().Window(parentWindow);  
             //end mobile Area
-            // End Testing of the General Functionality of Footer Links
             
-            // GetConnected : Map & DealerLink.  Click to this dealerlink needs to be generic. xpath is id('getconnected')/x:div[3]/x:div/x:ul[1]/x:li[1]/x:a
-            // Re-confirming Dealer Hoover Toyota  -- wait update I pickup LIMBAUGH now.  
+            // GetConnected : Map & DealerLink.    
             Thread.Sleep(5000);
             driver.Manage().Cookies.DeleteAllCookies();
             driver.Navigate().Refresh();
@@ -667,35 +675,32 @@ namespace sanity
 
             driver.FindElement(By.LinkText("CONFIRM ZIP")).Click();
             driver.FindElement(By.LinkText("Map & Directions")).Click();
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Map[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Map')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Satellite[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Satellite')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // ERROR: Caught exception [ERROR: Unsupported command [runScript | $(".ui-dialog-titlebar-close").click() | ]]
 
             Thread.Sleep(10000);
-            //fail3/25/2013 --  Unable to locate element for 'close'.  This has worked before , therefore introducing 
-            // thread sleep give time to locate the close button.  
-            //fail 3/27 -- adding even more time before and after 15 secs 
-            //fail 3/29 -- damn. fail again.. unable to locate. regardless of 15 second waits, this is a fragile close box.
-            //intermittent failing..driver.FindElement(By.LinkText("close")).Click();
-            //untested.  driver.FindElement(By.XPath("//a[contains(text(),'close')]")).Click();
-            //Thread.Sleep(15000);
-            //4/9 : Issues with locating Map close button. Intermittent failures witha try catch locator method which contained By.LinkText("close") and xpath (By.XPath("//a[contains(text(),'close')]").  Substituting simple Navigate.Back statement.
             
             driver.Navigate().Back();
             
@@ -703,76 +708,95 @@ namespace sanity
 
             // Family Pages General Load 
             driver.FindElement(By.XPath("//img[@alt='Cars and Minivan']")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
             Thread.Sleep(5000);
-            try
+            
+           try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Toyota cars and minivan[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Toyota cars and minivan')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+            
             driver.Navigate().Back();
 
             driver.FindElement(By.XPath("//img[@alt='Trucks']")).Click();
-            
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Toyota trucks[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Toyota trucks')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.Navigate().Back();
             driver.FindElement(By.XPath("//img[@alt='Crossovers and SUVs']")).Click();
-            
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Toyota crossovers and suvs[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Toyota crossovers and suvs')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
             
             driver.Navigate().Back();
             driver.FindElement(By.XPath("//img[@alt='Hybrids']")).Click();
-            
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Toyota hybrids[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Toyota hybrids')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
 
             driver.Navigate().Back();
-            // Warning: verifyTextPresent may require manual changes
+
             driver.FindElement(By.XPath("//img[@alt='Scion']")).Click();
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Toyota scion[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Toyota scion')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
             
             driver.Navigate().Back();
+            
             // End FamilyPage General Load
             
             // Family Page Elements - Avalon
             driver.FindElement(By.XPath("//img[@alt='Cars and Minivan']")).Click();
             Thread.Sleep(5000);
-            //Last on here.  May need to create a use case.  
+            
             driver.FindElement(By.XPath("//a[@href='#AprOffer_Camry']")).Click();  
-            //driver.FindElement(By.XPath("//a[contains(text(),'AprOffer_Camry')]")).Click();
+            
             driver.FindElement(By.XPath("//a[@href='#LeaseOffer_Camry']")).Click();
-            //driver.FindElement(By.XPath("//a[contains(text(),'LeaseOffer_Camry')]")).Click();
-
+            
             try
             {
                 driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/div[2]/div[3]/div/a")).Click();
@@ -782,18 +806,19 @@ namespace sanity
                 driver.FindElement(By.XPath("//a[@href='/camry']")).Click();
             }
 
-            //failed 3/25/20136driver.FindElement(By.XPath("//a[@href='/camry']")).Click();
             
-            
-            // Warning: verifyTextPresent may require manual changes
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*New Inventory[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'New Inventory')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             Thread.Sleep(5000);
             driver.Navigate().Back();
 
@@ -801,129 +826,138 @@ namespace sanity
             //Verify the text in all four
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*LEARN MORE ABOUT TOYOTA PARTS AND SERVICE[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'LEARN MORE ABOUT TOYOTA PARTS AND SERVICE')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*THE TOOLS YOU NEED TO GET THE CAR YOU WANT\\.[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'THE TOOLS YOU NEED TO GET THE CAR YOU WANT')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*FIND YOUR NEW TOYOTA\\.[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'FIND YOUR NEW TOYOTA')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*TOYOTA CERTIFIED USED VEHICLES\\.[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'TOYOTA CERTIFIED USED VEHICLES')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
+           
             //Selecting hyperlinks asscociated with the Promo pods.  
-            //attemping to select A anchor wherein the href contains 'parts-and-service'
-            // fail -- unable to locate.  driver.FindElement(By.XPath("//a[contains(text(),'parts-and-service')]")).Click();
             driver.FindElement(By.PartialLinkText("LEARN MORE ABOUT TOYOTA PARTS")).Click();
-            // Warning: verifyTextPresent may require manual changes
-            
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Tires[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Tires')]"));
+
             }
-            catch (AssertionException e) 
+
+            catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
 
             driver.Navigate().Back();  
-            //attemping to select A anchor wherein the href contains 'parts-and-service'
-            //fail---driver.FindElement(By.XPath("//a[contains(text(),'helpful-resources')]")).Click();
             driver.FindElement(By.PartialLinkText("THE TOOLS YOU NEED")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Helpful Resources[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Helpful Resources')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.Navigate().Back();
-            //attemping to select A anchor wherein the href contains 'parts-and-service'
-            //fail -- driver.FindElement(By.XPath("//a[contains(text(),'find-vehicle-for-budget')]")).Click();
             driver.FindElement(By.PartialLinkText("FIND YOUR NEW TOYOTA")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
+            
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Find the Right Toyota[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Find the Right Toyota')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
             driver.Navigate().Back();
-            //attemping to select A anchor wherein the href contains 'parts-and-service'
-            //fail --- driver.FindElement(By.XPath("//a[contains(text(),'used-and-preowned')]")).Click();
             driver.FindElement(By.PartialLinkText("TOYOTA CERTIFIED USED")).Click();
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Preowned[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Preowned')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
            
             driver.Navigate().Back();
             Thread.Sleep(5000);
             // End Promotion Tools
-            
-        
-            
-            
-            
-            
-            
-            
+    
             // Inventory Page. Tacoma. 
             
-            //driver.FindElement(By.LinkText("tacoma")).Click();
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma");
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*New Inventory[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'New Inventory')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            
-            
-            // Change inventory View : Full|Compact 
             
             driver.FindElement(By.CssSelector("button.inventory-view.compact")).Click();
             driver.FindElement(By.CssSelector("button.inventory-view.full")).Click();
               
             Thread.Sleep(10000);
 
-
-            //Inventory Pagination controls. Toyota Tacoma Inventory Page.  
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma");
             Thread.Sleep(10000);
             driver.FindElement(By.PartialLinkText("2")).Click();
@@ -931,20 +965,14 @@ namespace sanity
             driver.Navigate().Refresh();
             Thread.Sleep(10000);
             
-            //Intermittent failings here...
-            //Another intermittent failure 4/2/2013.  15 seconds prior increase to resolve?  Else Need some other method to use such as is element visible.  
             driver.FindElement(By.PartialLinkText("3")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.XPath("//a[contains(text(),'Next')]")).Click();
-            //driver.FindElement(By.PartialLinkText("Next")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.XPath("//a[contains(text(),'Prev')]")).Click();
-            //driver.FindElement(By.PartialLinkText("Prev")).Click();
             Thread.Sleep(20000);
             driver.FindElement(By.XPath("//a[contains(text(),'Last')]")).Click();
-            //driver.FindElement(By.PartialLinkText("Last")).Click();
             Thread.Sleep(10000);
-            //driver.FindElement(By.PartialLinkText("First")).Click();
             driver.FindElement(By.XPath("//a[contains(text(),'First')]")).Click();
             Thread.Sleep(10000);
             
@@ -1056,7 +1084,6 @@ namespace sanity
             }
 
             Thread.Sleep(10000);
-            //Selecting Interior/Exterior colors
             driver.FindElement(By.Id("SelectedExteriorColor_0202")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.Id("SelectedInteriorColor_FF13")).Click();
@@ -1100,6 +1127,7 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
+            
             driver.FindElement(By.CssSelector("button.reset")).Click();
             driver.FindElement(By.CssSelector("a.narrow-search-link > span")).Click();
 
@@ -1131,7 +1159,6 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'PRICING AND PAYMENTS')]"));
@@ -1286,11 +1313,8 @@ namespace sanity
             Thread.Sleep(10000);
 
 
-            // //END COMPARISON Funtionality 
-            // END B.   
-
-            //C. -- begins at Toyo Tacoma 'Explore' Options.  
-            
+            //End COMPARISON Funtionality 
+           
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma#tab=compare&explore=models");
             Thread.Sleep(5000);
 
@@ -1308,11 +1332,9 @@ namespace sanity
 
             Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("li.compare-features > a")).Click();
-            // Warning: verifyTextPresent may require manual changes
-
+           
             driver.FindElement(By.CssSelector("a.modal-link > span")).Click();
-            // ERROR: Caught exception [ERROR: Unsupported command [runScript | $(".ui-dialog-titlebar-close").click() | ]]
-            // Warning: verifyTextPresent may require manual changes
+           
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Compare Models + Features')]"));
@@ -1324,9 +1346,9 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-            //? em select?  
+            
             driver.FindElement(By.CssSelector("em")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Feature Finder')]"));
@@ -1338,16 +1360,11 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-            // ERROR: Caught exception [ERROR: Unsupported command [runScript | $(".ui-dialog-titlebar-close").click() | ]]
-
-            //untested -- trying to remove the DETAILS popup window from the prior section.
-            // didnt workdriver.FindElement(By.LinkText("exit")).Click();
-            //driver.FindElement(By.XPath("/html/body/div[22]/div/a/span")).Click();
-            //attempting base refresh, wait, nav away
+            
             driver.Navigate().Refresh();
             Thread.Sleep(5000);
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma#tab=compare&explore=colors");
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Colors')]"));
@@ -1361,9 +1378,7 @@ namespace sanity
             }
 
             Thread.Sleep(5000);
-            // Warning: verifyTextPresent may require manual changes
-
-
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Feature Finder')]"));
@@ -1376,11 +1391,7 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
             Thread.Sleep(10000);
-            //This might be a generic link for all the lower right hand buttons... test...
-            /////// not visdriver.FindElement(By.CssSelector("li.compare-features > a")).Click();
-
-            Thread.Sleep(5000);
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Feature Finder')]"));
@@ -1394,12 +1405,10 @@ namespace sanity
             }
 
             Thread.Sleep(5000);
-            // ERROR: Caught exception [ERROR: Unsupported command [runScript | $(".ui-dialog-titlebar-close").click() | ]]
-
+            
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma#tab=compare&explore=accessories");
             Thread.Sleep(5000);
 
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Accessories')]"));
@@ -1414,7 +1423,6 @@ namespace sanity
 
             Thread.Sleep(5000);
 
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Accessories Catalog')]"));
@@ -1428,12 +1436,8 @@ namespace sanity
             }
 
             Thread.Sleep(5000);
-            //Unable to Locate driver.FindElement(By.LinkText("Accessories Catalog")).Click();
-            //unble to locatedriver.FindElement(By.PartialLinkText("Catalog")).Click();
-            //nope..driver.FindElement(By.CssSelector("em")).Click();  
-            //Fail driver.FindElement(By.XPath("//a[contains(text(),'Catalog')]")).Click();
             driver.FindElement(By.XPath("//a[@href='#']")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Accessories Catalog')]"));
@@ -1445,10 +1449,9 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-            // ERROR: Caught exception [ERROR: Unsupported command [runScript | $(".ui-dialog-titlebar-close").click() | ]]
-            //driver.FindElement(By.LinkText("Media Gallery")).Click();
+            
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma#explore=photos");
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Gallery')]"));
@@ -1460,8 +1463,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
-
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Gallery - click thumbnail for larger image or to play movie.')]"));
@@ -1474,10 +1476,8 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-
-
             driver.FindElement(By.CssSelector("div.media-gallery > ul.actions > li.accessories-catalog > a")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Accessory Catalog')]"));
@@ -1490,16 +1490,14 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            //driver.FindElement(By.LinkText("close")).Click();
             driver.Navigate().Back();
 
-            // //END EXPLORE AREA
+            //END EXPLORE AREA
 
             // Offers - Vehicle Specific - In this instance, CAMRY  
 
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma/offers");
-            // Warning: verifyTextPresent may require manual changes
-
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'2013 Offers')]"));
@@ -1513,7 +1511,7 @@ namespace sanity
             }
 
             Thread.Sleep(5000);
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'View Inventory')]"));
@@ -1531,7 +1529,6 @@ namespace sanity
             driver.FindElement(By.ClassName("view-inventory-holder")).Click();
             Thread.Sleep(5000);
 
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'View Inventory')]"));
@@ -1551,7 +1548,6 @@ namespace sanity
             // Begin Offers >> Special Programs 
 
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/college/offers");
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'$500  - College Graduate Rebate Program')]"));
@@ -1573,6 +1569,7 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
+            
             try
             {
                 Assert.IsTrue(IsElementPresent(By.CssSelector("img[alt=\"Yaris\"]")));
@@ -1582,10 +1579,10 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
             // END Offers >> Special Programs 
+            
             // OFFERS Global Page
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/offers");
-            // Warning: verifyTextPresent may require manual changes
-
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'4Runner')]"));
@@ -1600,7 +1597,6 @@ namespace sanity
 
             Thread.Sleep(5000);
 
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Camry')]"));
@@ -1613,7 +1609,6 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Highlander')]"));
@@ -1625,7 +1620,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Matrix')]"));
@@ -1637,7 +1632,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'RAV4')]"));
@@ -1650,7 +1645,6 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'SCION SERVICE BOOST PROGRAM')]"));
@@ -1663,7 +1657,6 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Yaris')]"));
@@ -1675,16 +1668,18 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
+            
             //Need to test this method -- Assert.IsTrue IsElementPresent image  
             try
             {
                 Assert.IsTrue(IsElementPresent(By.CssSelector("img[alt=\"Yaris\"]")));
             }
+            
             catch (AssertionException e)
             {
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Featured Offers')]"));
@@ -1696,8 +1691,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
-
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Vehicle')]"));
@@ -1710,7 +1704,6 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Lease')]"));
@@ -1723,7 +1716,6 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'APR')]"));
@@ -1735,7 +1727,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Programs')]"));
@@ -1747,8 +1739,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
-
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Toyota Care - Complimentary Maintenance Program')]"));
@@ -1761,11 +1752,11 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            // //END OFFERS
+            //END OFFERS
 
             // BEGIN BUILD - BYO  - CAMRY  
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/camry/build");
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'SELECT A GRADE')]"));
@@ -1779,7 +1770,7 @@ namespace sanity
             }
 
             Thread.Sleep(5000);
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Select A Model')]"));
@@ -1793,29 +1784,37 @@ namespace sanity
             }
 
             Thread.Sleep(5000);
-            //[Ln 510 :  Unable to locate element Selector Next -- 4/4/2013  
+            
             driver.FindElement(By.LinkText("Next")).Click();
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Exterior:[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Exterior:')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Interior:[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Interior:')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.FindElement(By.CssSelector("div.color-description")).Click();
             driver.FindElement(By.CssSelector("img[alt=\"Barcelona Red Metallic\"]")).Click();
             driver.FindElement(By.XPath("(//img[@alt='Ivory Fabric'])[7]")).Click();
+            
             try
             {
                 Assert.IsTrue(IsElementPresent(By.CssSelector("div.vehicle-image > img")));
@@ -1824,56 +1823,74 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
+            
             driver.FindElement(By.LinkText("Next")).Click();
             driver.FindElement(By.CssSelector("li.packages-tab.selected")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Click on package name for details[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Click on a package name for details')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+            
             driver.FindElement(By.LinkText("Prev")).Click();
             driver.FindElement(By.LinkText("Next")).Click();
             driver.FindElement(By.LinkText("Next")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Click on accessory name for details[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Click on accessory name for details')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Wheels[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Wheels')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Technology[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Technology')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Options[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Options')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+            
             try
             {
                 Assert.IsTrue(IsElementPresent(By.CssSelector("div.vehicle-image > img")));
@@ -1882,34 +1899,45 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
+
             driver.FindElement(By.LinkText("Next")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*[\\s\\S]* Required Field[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Required Field')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Preferred Method Of Contact[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Preferred Method Of Contact')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
-            // Warning: verifyTextPresent may require manual changes
+            
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Submit[\\s\\S]*$"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Submit')]"));
+
             }
+
             catch (AssertionException e)
             {
+
                 verificationErrors.Append(e.Message);
             }
+
             driver.FindElement(By.CssSelector("li.options-tab")).Click();
             driver.FindElement(By.CssSelector("li.packages-tab")).Click();
             driver.FindElement(By.CssSelector("li.color-tab")).Click();

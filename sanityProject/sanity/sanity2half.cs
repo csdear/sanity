@@ -93,18 +93,6 @@ namespace sanity
             driver.FindElement(By.PartialLinkText("50")).Click();
             Thread.Sleep(10000);
             
-            // Suggestion area.  Currently targeted to hit the first 'Details' button on Suggestion Pod.  
-            // Header Verification
-            /*try
-            {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*You may also be interested in these vehicles and accessories[\\s\\S]*$"));
-            }
-            catch (AssertionException e)
-            {
-                verificationErrors.Append(e.Message);
-            }
-             */
-
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'You may also be interested in these vehicles and accessories')]"));
@@ -330,7 +318,7 @@ namespace sanity
             // Warning: verifyTextPresent may require manual changes
             try
             {
-                Assert.IsTrue(Regex.IsMatch(driver.FindElement(By.CssSelector("BODY")).Text, "^[\\s\\S]*Customize[\\s\\S]*$"));
+                
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Customize')]"));
             }
             catch (AssertionException e)
