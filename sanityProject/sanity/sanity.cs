@@ -161,7 +161,8 @@ namespace sanity
 
             //Browse Models--->  
             Thread.Sleep(10000);
-            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=models']"));
+
+            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=models']")).Click();
             Thread.Sleep(10000);
             try
             {
