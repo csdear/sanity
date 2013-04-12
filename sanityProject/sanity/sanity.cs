@@ -180,6 +180,7 @@ namespace sanity
             driver.Navigate().Back();  
             
             //Pick Your Color-->
+            Thread.Sleep(10000);
             driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=colors']")).Click();
             Thread.Sleep(5000);
             try
