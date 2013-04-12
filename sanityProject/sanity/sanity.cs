@@ -214,8 +214,9 @@ namespace sanity
             driver.Navigate().Back();
             Thread.Sleep(10000);
 
-            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=models&modal=feature-finder&selected-series=scion-xB']")).Click(); 
-            //works -- driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div[5]/div/div[3]/ul/li[4]/a")).Click();
+            //diasbled - unable to located. driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=models&modal=feature-finder&selected-series=scion-xB']")).Click(); 
+            //Using generic X path.  
+            driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div[5]/div/div[3]/ul/li[4]/a")).Click();
 
             try
             {
