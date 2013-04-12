@@ -152,11 +152,17 @@ namespace sanity
             // 3rd Tier [2012 Scion XB] load verified.
             // ***Begin 3rd Tier Link Tests***  
             Thread.Sleep(10000);
+            //Navigate directly to the 2nd tier.  
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/#family=Scion&series=2012+Scion+xB");
             Thread.Sleep(10000);
+            //Select vehicle, which loads the 3rd tier.  
             driver.FindElement(By.XPath("//img[@alt='2013 Scion xB']")).Click();
+            Thread.Sleep(10000);
+
+            //Browse Models--->  
+            Thread.Sleep(10000);
+            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=models']"));
             
-            // Warning: verifyTextPresent may require manual changes
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Models & Features')]"));
@@ -169,14 +175,12 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            driver.Navigate().Back();
-            driver.FindElement(By.XPath("//img[@alt='2013 Scion xB']")).Click();
-            
-            //Browse Models  
-            
-            Thread.Sleep(10000);
-            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=models']"));
 
+            driver.Navigate().Back();  
+            
+            //Pick Your Color-->
+            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=colors']")).Click();
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Colors')]"));
@@ -191,9 +195,7 @@ namespace sanity
 
             driver.Navigate().Back();
             Thread.Sleep(10000);
-            driver.FindElement(By.XPath("//img[@alt='2013 Scion xB']")).Click();
-            Thread.Sleep(10000);
-            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=photos']"));
+            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=photos']")).Click();
 
             try
             {
@@ -209,7 +211,9 @@ namespace sanity
 
             driver.Navigate().Back();
             Thread.Sleep(10000);
-            driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div[5]/div/div[3]/ul/li[4]/a")).Click();
+
+            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=models&modal=feature-finder&selected-series=scion-xB']")).Click(); 
+            //works -- driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div[5]/div/div[3]/ul/li[4]/a")).Click();
 
             try
             {
@@ -224,11 +228,11 @@ namespace sanity
             }
 
             driver.Navigate().Back();
-            Thread.Sleep(5000);
-            driver.FindElement(By.XPath("//img[@alt='2013 Scion xB']")).Click();
             Thread.Sleep(10000);
-            driver.FindElement(By.XPath("//a[contains(text(),'View Offers')]")).Click();
 
+            driver.FindElement(By.XPath("//a[@href='/scion-xb/offers']")).Click();
+            //works --driver.FindElement(By.XPath("//a[contains(text(),'View Offers')]")).Click();
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'2012 Offers')]"));
@@ -241,10 +245,10 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
             driver.Navigate().Back();
-            //Assumption user will be sent back to 2nd tier...  
-            driver.FindElement(By.XPath("//img[@alt='2013 Scion xB']")).Click();
             Thread.Sleep(5000);
-            driver.FindElement(By.XPath("//a[contains(text(),'See Options')]")).Click();
+
+            driver.FindElement(By.XPath("//a[@href='/scion-xb#explore=accessories&modal=accessory-catalog&series=scion-xb']")).Click();
+            //works -- driver.FindElement(By.XPath("//a[contains(text(),'See Options')]")).Click();
 
             try
             {
@@ -261,7 +265,9 @@ namespace sanity
             // ***End 3rd Tier Link Tests***
             // ***Begin Navigation Back Carousel. 3rd tier to 2nd Tier***
             driver.Navigate().Back();
+            Thread.Sleep(5000);
             
+
             driver.FindElement(By.CssSelector("a.families-back-link")).Click();
             try
             {
