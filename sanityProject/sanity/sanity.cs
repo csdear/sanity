@@ -310,17 +310,7 @@ namespace sanity
             //Last on... Add a Thread Sleep, else omit. This is the hyperlink Ask A Question link and verification is immaterial in this context
             //If sleep does not rectify, omit this section.    
             Thread.Sleep(10000);
-            try
-            {
-                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Ask a Question')]"));
-
-            }
-
-            catch (AssertionException e)
-            {
-
-                verificationErrors.Append(e.Message);
-            }
+            driver.FindElement(By.ClassName("open-lead-link")).Click();  
             
             //Need to close this popup window.
             Thread.Sleep(5000);
