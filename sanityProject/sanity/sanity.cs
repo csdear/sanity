@@ -344,6 +344,8 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
+            Thread.Sleep(5000);
+             
             driver.FindElement(By.LinkText("Payment Calculator")).Click();
             
             try
@@ -357,11 +359,11 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-
+            Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("button.exit")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.LinkText("Lease vs. Purchase")).Click();
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Lease Vs Purchase')]"));
@@ -373,9 +375,11 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
+            Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("button.exit")).Click();
             Thread.Sleep(10000);
             driver.FindElement(By.LinkText("Right Vehicle For Your Budget")).Click();
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Find the Right Toyota')]"));
@@ -402,10 +406,11 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            driver.FindElement(
-            By.CssSelector("button.exit")).Click();
+            Thread.Sleep(5000);
+            driver.FindElement(By.CssSelector("button.exit")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.LinkText("Glossary Of Terms")).Click();
+            Thread.Sleep(5000);
             try
             {
                 Assert.IsTrue(IsElementPresent(By.Id("GlossaryOfTerms")));
@@ -414,17 +419,19 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
-            
+            Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("button.exit")).Click();
             Thread.Sleep(10000);
             driver.FindElement(By.LinkText("Schedule An Appointment")).Click(); 
+            Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("button.exit")).Click();
             Thread.Sleep(10000);
             driver.FindElement(By.LinkText("View Service Specials")).Click();
+            Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("button.exit")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.LinkText("View Accessory Catalog")).Click();
-            
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Accessory Catalog')]"));
@@ -436,7 +443,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-            
+            Thread.Sleep(5000);
             // Comparison Tools / Advantastar Hyperlink.  
             
             driver.FindElement(By.LinkText("close")).Click();
@@ -445,6 +452,7 @@ namespace sanity
             driver.Navigate().Refresh();
             Thread.Sleep(5000);
             driver.FindElement(By.LinkText("Competitive Comparisons")).Click();
+            Thread.Sleep(5000);
             try
             {
                 Assert.IsTrue(IsElementPresent(By.Id("CompetitiveComparisons")));
