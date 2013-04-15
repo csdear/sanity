@@ -330,6 +330,7 @@ namespace sanity
             driver.Navigate().Back();
             
             // Begin Helpful Resources 
+            Thread.Sleep(20000);
             driver.FindElement(By.CssSelector("a.tab-resources-link > span")).Click();
             try
             {
