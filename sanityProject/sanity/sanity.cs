@@ -307,7 +307,9 @@ namespace sanity
             Thread.Sleep(5000);
             driver.FindElement(By.LinkText("Details")).Click();
             
-            
+            //Last on... Add a Thread Sleep, else omit. This is the hyperlink Ask A Question link and verification is immaterial in this context
+            //If sleep does not rectify, omit this section.    
+            Thread.Sleep(10000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Ask a Question')]"));
@@ -320,6 +322,11 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
             
+            //Need to close this popup window.
+            Thread.Sleep(5000);
+            driver.FindElement(By.CssSelector("span.ui-icon.ui-icon-closethick")).Click();
+            Thread.Sleep(5000);  
+
             
             driver.FindElement(By.LinkText("Find One")).Click();
 
