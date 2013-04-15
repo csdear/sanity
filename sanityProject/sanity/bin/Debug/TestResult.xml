@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Documents and Settings\stuartd\My Documents\GitHub\sanity\sanityProject\sanity\bin\Debug\sanity.dll" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-15" time="13:51:50">
+<test-results name="C:\Documents and Settings\stuartd\My Documents\GitHub\sanity\sanityProject\sanity\bin\Debug\sanity.dll" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-15" time="14:05:28">
   <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.3643" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="C:\Documents and Settings\stuartd\My Documents\GitHub\sanity\sanityProject\sanity\bin\Debug" machine-name="QA1" user="stuartd" user-domain="STRONG" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\Documents and Settings\stuartd\My Documents\GitHub\sanity\sanityProject\sanity\bin\Debug\sanity.dll" executed="True" result="Failure" success="False" time="349.080" asserts="0">
+  <test-suite type="Assembly" name="C:\Documents and Settings\stuartd\My Documents\GitHub\sanity\sanityProject\sanity\bin\Debug\sanity.dll" executed="True" result="Failure" success="False" time="407.094" asserts="0">
     <results>
-      <test-suite type="Namespace" name="sanity" executed="True" result="Failure" success="False" time="349.049" asserts="0">
+      <test-suite type="Namespace" name="sanity" executed="True" result="Failure" success="False" time="407.062" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="ProdSanity20130213" executed="True" result="Failure" success="False" time="349.049" asserts="0">
+          <test-suite type="TestFixture" name="ProdSanity20130213" executed="True" result="Failure" success="False" time="407.062" asserts="0">
             <results>
-              <test-case name="sanity.ProdSanity20130213.TheProdSanity20130213Test" executed="True" result="Error" success="False" time="349.002" asserts="1">
+              <test-case name="sanity.ProdSanity20130213.TheProdSanity20130213Test" executed="True" result="Error" success="False" time="406.984" asserts="1">
                 <failure>
-                  <message><![CDATA[OpenQA.Selenium.NoSuchElementException : Unable to locate element: {"method":"css selector","selector":"a.tab-resources-link > span"}]]></message>
+                  <message><![CDATA[OpenQA.Selenium.NoSuchElementException : Unable to locate element: {"method":"xpath","selector":"//*[contains(.,'Calculate Your Payment')]"}]]></message>
                   <stack-trace><![CDATA[at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
 at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
 at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(String mechanism, String value)
-at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByCssSelector(String cssSelector)
-at OpenQA.Selenium.By.<>c__DisplayClass1e.<CssSelector>b__1c(ISearchContext context)
+at OpenQA.Selenium.Remote.RemoteWebDriver.FindElementByXPath(String xpath)
+at OpenQA.Selenium.By.<>c__DisplayClasse.<XPath>b__c(ISearchContext context)
 at OpenQA.Selenium.By.FindElement(ISearchContext context)
 at OpenQA.Selenium.Remote.RemoteWebDriver.FindElement(By by)
 at sanity.ProdSanity20130213.TheProdSanity20130213Test()
