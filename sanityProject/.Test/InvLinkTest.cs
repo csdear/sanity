@@ -62,7 +62,7 @@ namespace Test
             //2.  Test your locator code ex.
             try
             {
-                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Calculate Your Payment')]"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'<h1>Calculate<em>Your Payment</em></h1>')]"));
 
             }
 
