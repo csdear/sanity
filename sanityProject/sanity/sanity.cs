@@ -347,7 +347,7 @@ namespace sanity
             Thread.Sleep(5000);
              
             driver.FindElement(By.LinkText("Payment Calculator")).Click();
-            
+            Thread.Sleep(10000);
             //error -- unable to locate 
             try
             {
