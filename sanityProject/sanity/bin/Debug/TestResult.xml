@@ -1,33 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="\\Stuartd-laptop\selenium\sanityProject\sanity\bin\Debug\sanity.dll" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-09" time="16:36:12">
-  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.3643" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="\\Stuartd-laptop\selenium\sanityProject\sanity\bin\Debug" machine-name="QA1" user="stuartd" user-domain="STRONG" />
+<test-results name="C:\Documents and Settings\stuartd\My Documents\GitHub\sanity\sanityProject\sanity\bin\Debug\sanity.dll" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-04-15" time="11:32:39">
+  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.3643" os-version="Microsoft Windows NT 5.1.2600 Service Pack 3" platform="Win32NT" cwd="C:\Documents and Settings\stuartd\My Documents\GitHub\sanity\sanityProject\sanity\bin\Debug" machine-name="QA1" user="stuartd" user-domain="STRONG" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="\\Stuartd-laptop\selenium\sanityProject\sanity\bin\Debug\sanity.dll" executed="True" result="Failure" success="False" time="1581.919" asserts="0">
+  <test-suite type="Assembly" name="C:\Documents and Settings\stuartd\My Documents\GitHub\sanity\sanityProject\sanity\bin\Debug\sanity.dll" executed="True" result="Failure" success="False" time="396.063" asserts="0">
     <results>
-      <test-suite type="Namespace" name="sanity" executed="True" result="Failure" success="False" time="1581.903" asserts="0">
+      <test-suite type="Namespace" name="sanity" executed="True" result="Failure" success="False" time="396.047" asserts="0">
         <results>
-          <test-suite type="TestFixture" name="ProdSanity20130213" executed="True" result="Failure" success="False" time="1581.888" asserts="0">
+          <test-suite type="TestFixture" name="ProdSanity20130213" executed="True" result="Failure" success="False" time="396.047" asserts="0">
             <results>
-              <test-case name="sanity.ProdSanity20130213.TheProdSanity20130213Test" executed="True" result="Failure" success="False" time="1581.872" asserts="53">
+              <test-case name="sanity.ProdSanity20130213.TheProdSanity20130213Test" executed="True" result="Error" success="False" time="395.985" asserts="1">
                 <failure>
-                  <message><![CDATA[OpenQA.Selenium.WebDriverException : No response from server for url http://localhost:7055/hub/session/43924824-e85e-4f12-9caa-93fc72a791b3/refresh
-TearDown : 
-	String lengths differ.  Expected length=0, but was length=1346.
-	Strings differ at index 0.
-	
-	expected:<"">
-	 but was:<"\r\n\tString lengths differ.  Expected...">
-	-----------^
-	]]></message>
-                  <stack-trace><![CDATA[at OpenQA.Selenium.Remote.HttpCommandExecutor.CreateResponse(WebRequest request) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\Remote\HttpCommandExecutor.cs:line 133
-at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\Remote\HttpCommandExecutor.cs:line 114
-at OpenQA.Selenium.Firefox.Internal.ExtensionConnection.Execute(Command commandToExecute) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\Firefox\Internal\ExtensionConnection.cs:line 128
-at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters) in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\Remote\RemoteWebDriver.cs:line 836
-at OpenQA.Selenium.Remote.RemoteNavigator.Refresh() in c:\Projects\WebDriver\trunk\dotnet\src\WebDriver\Remote\RemoteNavigator.cs:line 87
-at sanity.ProdSanity20130213.TheProdSanity20130213Test() in C:\Program Files\Selenium\sanityProject\sanity\sanity.cs:line 1158
---TearDown
-at sanity.ProdSanity20130213.TeardownTest() in C:\Program Files\Selenium\sanityProject\sanity\sanity.cs:line 48
+                  <message><![CDATA[OpenQA.Selenium.ElementNotVisibleException : Element is not currently visible and so may not be interacted with]]></message>
+                  <stack-trace><![CDATA[at OpenQA.Selenium.Remote.RemoteWebDriver.UnpackAndThrowOnError(Response errorResponse)
+at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+at OpenQA.Selenium.Remote.RemoteWebElement.Click()
+at sanity.ProdSanity20130213.TheProdSanity20130213Test()
 ]]></stack-trace>
                 </failure>
               </test-case>
