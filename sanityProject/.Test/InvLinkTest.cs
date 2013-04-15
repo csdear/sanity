@@ -55,14 +55,27 @@ namespace Test
             Thread.Sleep(5000);  */
             
             //1.  Insert a URL. ex.,   
-            driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/#family=Scion&series=2013+Scion+xB&modal=map-and-directions");
+            driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/#tab=helpful-resources&tool=payment-calculator");
             Thread.Sleep(10000);
+
+
             //2.  Test your locator code ex.
-            //no exist..  driver.FindElement(By.XPath("/html/body/div[8]/div/a/span")).Click();
-            //not viz...driver.FindElement(By.XPath("//a[@class='ui-dialog-titlebar-close ui-corner-all']")).Click();
-            
+            try
+            {
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Calculate Your Payment')]"));
+
+            }
+
+            catch (AssertionException e)
+            {
+
+                verificationErrors.Append(e.Message);
+            }
+            Thread.Sleep(5000);
+
             //3.  Verify 
             Thread.Sleep(10000);
+
             /* Inventory Pagination Testing 
             driver.FindElement(By.PartialLinkText("2")).Click();
             Thread.Sleep(10000);

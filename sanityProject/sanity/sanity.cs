@@ -348,6 +348,7 @@ namespace sanity
              
             driver.FindElement(By.LinkText("Payment Calculator")).Click();
             
+            //error -- unable to locate 
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Calculate Your Payment')]"));
