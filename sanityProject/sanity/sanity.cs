@@ -351,7 +351,7 @@ namespace sanity
             //error -- unable to locate 
             try
             {
-                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Calculate Your Payment')]"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Calculate')]"));
 
             }
 
