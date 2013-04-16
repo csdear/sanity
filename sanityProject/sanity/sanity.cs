@@ -691,7 +691,7 @@ namespace sanity
             driver.FindElement(By.LinkText("CONFIRM ZIP")).Click();
             Thread.Sleep(20000); 
             driver.FindElement(By.LinkText("Map & Directions")).Click();
-
+            Thread.Sleep(10000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Map')]"));
@@ -704,17 +704,6 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            try
-            {
-                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Satellite')]"));
-
-            }
-
-            catch (AssertionException e)
-            {
-
-                verificationErrors.Append(e.Message);
-            }
 
             Thread.Sleep(10000);
             
