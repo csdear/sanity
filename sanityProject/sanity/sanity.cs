@@ -687,6 +687,7 @@ namespace sanity
             Thread.Sleep(10000);
 
             driver.FindElement(By.LinkText("CONFIRM ZIP")).Click();
+            Thread.Sleep(20000); 
             driver.FindElement(By.LinkText("Map & Directions")).Click();
 
             try
