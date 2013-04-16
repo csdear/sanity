@@ -51,7 +51,7 @@ namespace sanity
 
         [Test]
         
-        public void TemplateFunction()
+        public void AaqMain()
         {
            
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
