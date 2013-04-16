@@ -367,7 +367,7 @@ namespace sanity
             Thread.Sleep(5000);
             try
             {
-                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Lease Vs Purchase')]"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Lease vs. Purchase')]"));
 
             }
 
