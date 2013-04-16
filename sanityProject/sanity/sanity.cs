@@ -1253,8 +1253,9 @@ namespace sanity
             //2. Select two Vehicles to compare.  The checkbox or the Compare button in the row will suffice.  
 
             driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/div[3]/div/div[3]/div/div/div[4]/div[2]/label/span")).Click();
+            Thread.Sleep(5000);
             driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/div[3]/div/div[4]/div/div/div[4]/div[2]/label/span")).Click();
-
+            Thread.Sleep(10000);
             //3.  Now select the Compare Tab
             driver.FindElement(By.Id("CompareTab")).Click();
             //untested --driver.FindElement(By.CssSelector("button.compare.btn-small-white")).Click();
