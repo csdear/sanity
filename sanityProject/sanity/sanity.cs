@@ -586,9 +586,10 @@ namespace sanity
 
             driver.Navigate().Back();
             // End PreOwned General Link Verification
-            
+            Thread.Sleep(10000);
             driver.FindElement(By.LinkText("What is a Certified Pre-owned Vehicle?")).Click();
-            // Warning: verifyTextPresent may require manual changes
+            Thread.Sleep(10000);
+
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Toyota Certified Program')]"));
@@ -603,6 +604,7 @@ namespace sanity
             driver.Navigate().Back();
             // Footer Area
             driver.Navigate().Back();
+            Thread.Sleep(10000);
             driver.FindElement(By.CssSelector("a.AboutSetLink.modal-link > span")).Click();
             
             try
