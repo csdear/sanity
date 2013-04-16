@@ -104,6 +104,8 @@ namespace sanity
             }
 
             // Content Loaded Tabs View Offers and Helpful Resources Verified
+            
+            // Scion 1st Tier
             driver.FindElement(By.CssSelector("a.tab-lineup-link > span")).Click();
             driver.FindElement(By.CssSelector("li.forward-button > a")).Click();
             driver.FindElement(By.CssSelector("li.forward-button > a")).Click();
@@ -284,9 +286,9 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            // ***End Back Navigation Carousel.  ***  
+            // ***End Carousel Testing  ***  
             
-            // ***Begin View Offers Tab***
+            // ***Begin View/Featured Offers Tab***
             driver.FindElement(By.CssSelector("a.tab-offers-link > span")).Click();
 
             try
@@ -329,6 +331,8 @@ namespace sanity
 
             driver.Navigate().Back();
             
+            //End View/Featured Offers
+
             // Begin Helpful Resources 
             Thread.Sleep(20000);
             driver.FindElement(By.CssSelector("a.tab-resources-link > span")).Click();
@@ -602,7 +606,9 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
             driver.Navigate().Back();
-            // Footer Area
+            //End Helpful Resources Section
+            
+            // Begin Footer Area
             driver.Navigate().Back();
             Thread.Sleep(10000);
             driver.FindElement(By.CssSelector("a.AboutSetLink.modal-link > span")).Click();
@@ -639,7 +645,7 @@ namespace sanity
             }
             
             Thread.Sleep(2000);
-            //End Footer link Area  
+             
             
             driver.FindElement(By.LinkText("SET Finance")).Click();
             
@@ -680,8 +686,8 @@ namespace sanity
             }
 
             driver.Navigate().Back(); 
-            //end mobile Area
-            
+            //End Footer Section 
+
             // GetConnected : Map & DealerLink.    
             Thread.Sleep(5000);
             driver.Manage().Cookies.DeleteAllCookies();
@@ -710,8 +716,9 @@ namespace sanity
             driver.Navigate().Back();
             
             Thread.Sleep(10000);
+            //End Map 
 
-            // Family Pages General Load 
+            // Family Pages 
             driver.FindElement(By.XPath("//img[@alt='Cars and Minivan']")).Click();
             
             Thread.Sleep(5000);
@@ -943,7 +950,8 @@ namespace sanity
             driver.Navigate().Back();
             Thread.Sleep(5000);
             // End Promotion Tools
-    
+            // End Family Page
+   
             // Inventory Page. Tacoma. 
             
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma");
@@ -1320,10 +1328,12 @@ namespace sanity
             Thread.Sleep(5000);
             driver.Close();
             Thread.Sleep(10000);
-
+            
 
             //End COMPARISON Funtionality 
-           
+            //End Inventory 
+
+            //Begin Explore Area
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma#tab=compare&explore=models");
             Thread.Sleep(5000);
 
@@ -1503,7 +1513,8 @@ namespace sanity
 
             //END EXPLORE AREA
 
-            // Offers - Vehicle Specific - In this instance, CAMRY  
+
+            // Offers Area - Vehicle Specific - In this instance, CAMRY  
 
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma/offers");
             
@@ -1761,7 +1772,7 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            //END OFFERS
+            //END OFFERS AREA
 
             // BEGIN BUILD - BYO  - CAMRY  
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/camry/build");
@@ -1952,7 +1963,7 @@ namespace sanity
             driver.FindElement(By.CssSelector("li.color-tab")).Click();
             driver.FindElement(By.CssSelector("li.model-tab")).Click();
             driver.FindElement(By.CssSelector("img.tam-image")).Click();
-
+            //END BYO 
 
             // End Sanity Testing
             
