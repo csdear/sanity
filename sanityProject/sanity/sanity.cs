@@ -911,7 +911,8 @@ namespace sanity
             driver.Navigate().Back();
             driver.FindElement(By.PartialLinkText("FIND YOUR NEW TOYOTA")).Click();
             
-            
+            //914 --
+            Thread.Sleep(10000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Find the Right Toyota')]"));
@@ -924,6 +925,7 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
             driver.Navigate().Back();
+            Thread.Sleep(5000);
             driver.FindElement(By.PartialLinkText("TOYOTA CERTIFIED USED")).Click();
 
             try
