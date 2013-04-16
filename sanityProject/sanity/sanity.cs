@@ -562,8 +562,9 @@ namespace sanity
             driver.Close();
             driver.SwitchTo().Window(parentWindow);
             driver.FindElement(By.LinkText("Glossary Of Terms")).Click();
-            Thread.Sleep(5000);
-            driver.FindElement(By.ClassName("exit")).Click();
+            Thread.Sleep(10000);
+            //driver.FindElement(By.ClassName("exit")).Click();
+            driver.Navigate().Back();  
             Thread.Sleep(5000);
 
              //End Helpful Resources popupwindow sanityWindow .   
