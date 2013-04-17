@@ -335,7 +335,8 @@ namespace sanity
             //End Helpful Resources Section
             Thread.Sleep(10000);
             
-            driver.Close();      
+            //driver.Close();
+            driver.Quit();  
         }
 
         //Extension Methods... 
