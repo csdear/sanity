@@ -35,7 +35,7 @@ namespace sanity
          
         }
         
-        [TearDown]
+        /*[TearDown]
         public void TeardownTest()
         {
             try
@@ -48,7 +48,7 @@ namespace sanity
             }
             Assert.AreEqual("", verificationErrors.ToString());
         }
-
+          */
         [Test]
         
         public void FamilyPagesMain()
