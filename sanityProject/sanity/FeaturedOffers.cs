@@ -11,7 +11,7 @@ namespace sanity
 {
     [TestFixture]
     
-    public class Template
+    public class FeaturedOffers
     {
         private IWebDriver driver;
         private IWebElement webby;  
@@ -51,14 +51,58 @@ namespace sanity
 
         [Test]
         
-        public void TemplateFunction()
+        public void FeaturedOffersMain()
         {
            
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/#");
+            driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/");
             driver.Manage().Cookies.DeleteAllCookies();
             driver.Navigate().Refresh();
             Thread.Sleep(20000);
+            // ***Begin View/Featured Offers Tab***
+            driver.FindElement(By.CssSelector("a.tab-offers-link > span")).Click();
+
+            try
+            {
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Featured Offers')]"));
+
+            }
+
+            catch (AssertionException e)
+            {
+
+                verificationErrors.Append(e.Message);
+            }
+
+            driver.FindElement(By.LinkText("Next")).Click();
+            Thread.Sleep(10000);
+            driver.FindElement(By.LinkText("Prev")).Click();
+            Thread.Sleep(10000);
+            driver.FindElement(By.LinkText("Details")).Click();
+
+            Thread.Sleep(10000);
+            driver.Navigate().Back();
+            Thread.Sleep(10000);
+
+
+            driver.FindElement(By.LinkText("Find One")).Click();
+            Thread.Sleep(20000);
+
+            try
+            {
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'New Inventory')]"));
+
+            }
+
+            catch (AssertionException e)
+            {
+
+                verificationErrors.Append(e.Message);
+            }
+
+            driver.Navigate().Back();
+            Thread.Sleep(5000); 
+            //End View/Featured Offers
             driver.Close();      
         }
 
