@@ -78,7 +78,7 @@ namespace sanity
             }
 
             driver.Navigate().Back();
-
+            Thread.Sleep(5000);
             driver.FindElement(By.XPath("//img[@alt='Trucks']")).Click();
 
             try
@@ -94,6 +94,7 @@ namespace sanity
             }
 
             driver.Navigate().Back();
+            Thread.Sleep(5000);
             driver.FindElement(By.XPath("//img[@alt='Crossovers and SUVs']")).Click();
 
             try
@@ -109,6 +110,7 @@ namespace sanity
             }
 
             driver.Navigate().Back();
+            Thread.Sleep(5000);
             driver.FindElement(By.XPath("//img[@alt='Hybrids']")).Click();
 
             try
@@ -124,7 +126,7 @@ namespace sanity
             }
 
             driver.Navigate().Back();
-
+            Thread.Sleep(5000);
             driver.FindElement(By.XPath("//img[@alt='Scion']")).Click();
 
             try
@@ -144,6 +146,7 @@ namespace sanity
             // End FamilyPage General Load
 
             // Family Page Elements - Avalon
+            Thread.Sleep(5000);
             driver.FindElement(By.XPath("//img[@alt='Cars and Minivan']")).Click();
             Thread.Sleep(5000);
 
