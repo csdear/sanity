@@ -181,6 +181,7 @@ namespace sanity
 
             // Promotion Tools - Subject to change - TAM configurable.
             //Verify the text in all four
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'LEARN MORE ABOUT TOYOTA PARTS AND SERVICE')]"));
@@ -193,6 +194,7 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'THE TOOLS YOU NEED TO GET THE CAR YOU WANT')]"));
@@ -205,6 +207,7 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'FIND YOUR NEW TOYOTA')]"));
@@ -216,7 +219,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'TOYOTA CERTIFIED USED VEHICLES')]"));
@@ -229,10 +232,10 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-
+            Thread.Sleep(5000);
             //Selecting hyperlinks asscociated with the Promo pods.  
             driver.FindElement(By.PartialLinkText("LEARN MORE ABOUT TOYOTA PARTS")).Click();
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Tires')]"));
@@ -246,8 +249,9 @@ namespace sanity
             }
 
             driver.Navigate().Back();
+            Thread.Sleep(5000);
             driver.FindElement(By.PartialLinkText("THE TOOLS YOU NEED")).Click();
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Helpful Resources')]"));
@@ -261,6 +265,7 @@ namespace sanity
             }
 
             driver.Navigate().Back();
+            Thread.Sleep(5000);
             driver.FindElement(By.PartialLinkText("FIND YOUR NEW TOYOTA")).Click();
 
             //914 --
@@ -279,7 +284,7 @@ namespace sanity
             driver.Navigate().Back();
             Thread.Sleep(5000);
             driver.FindElement(By.PartialLinkText("TOYOTA CERTIFIED USED")).Click();
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Preowned')]"));
