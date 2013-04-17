@@ -35,7 +35,7 @@ namespace sanity
          
         }
         
-        [TearDown]
+       /* [TearDown]
         public void GetConnectedMapMain()
         {
             try
@@ -47,11 +47,11 @@ namespace sanity
                 // Ignore errors if unable to close the browser
             }
             Assert.AreEqual("", verificationErrors.ToString());
-        }
+        } */
 
         [Test]
         
-        public void TemplateFunction()
+        public void GCMapMain()
         {
            
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
