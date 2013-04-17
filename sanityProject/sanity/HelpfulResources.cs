@@ -36,7 +36,7 @@ namespace sanity
         }
         
         [TearDown]
-        public void TeardownTest()
+       /* public void TeardownTest()
         {
             try
             {
@@ -47,7 +47,7 @@ namespace sanity
                 // Ignore errors if unable to close the browser
             }
             Assert.AreEqual("", verificationErrors.ToString());
-        }
+        } */
 
         [Test]
         
@@ -335,8 +335,8 @@ namespace sanity
             //End Helpful Resources Section
             Thread.Sleep(10000);
             
-            //driver.Close();
-            driver.Quit();  
+            driver.Close();
+            
         }
 
         //Extension Methods... 
