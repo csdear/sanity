@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="AAQform.cs" />
     <Compile Include="Carousel.cs" />
+    <Compile Include="HelpfulResources.cs" />
     <Compile Include="FeaturedOffers.cs" />
     <Compile Include="GcConfirmChange.cs" />
     <Compile Include="template.cs" />
