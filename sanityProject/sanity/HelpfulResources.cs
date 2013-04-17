@@ -331,10 +331,10 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
+            Thread.Sleep(10000); 
             driver.Navigate().Back();
             //End Helpful Resources Section
             Thread.Sleep(10000);
-            
             driver.Close();
             
         }
