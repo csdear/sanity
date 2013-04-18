@@ -373,8 +373,8 @@ namespace sanity
             driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/div[3]/div/div[4]/div/div/div[4]/div[2]/label/span")).Click();
             Thread.Sleep(10000);
             //3.  Now select the Compare Tab
-            driver.FindElement(By.Id("CompareTab")).Click();
-            //untested --driver.FindElement(By.CssSelector("button.compare.btn-small-white")).Click();
+            // Sub'd in line below -- difficulty finding the compare tab.   driver.FindElement(By.Id("CompareTab")).Click();
+            driver.FindElement(By.CssSelector("button.compare.btn-small-white")).Click();
             Thread.Sleep(10000);
             //Verify Compare Loads.  
             try
