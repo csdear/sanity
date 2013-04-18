@@ -306,7 +306,7 @@ namespace sanity
             driver.FindElement(By.LinkText("Options")).Click();
             driver.FindElement(By.CssSelector("a.tab-packages-link")).Click();
             driver.FindElement(By.LinkText("Wheels")).Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(15000);
             driver.FindElement(By.CssSelector("button.exit")).Click();
             Thread.Sleep(3000);
             //End Details Page - Monroney 
@@ -317,15 +317,15 @@ namespace sanity
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma");
             //Target First Inventory Item. 
             driver.FindElement(By.CssSelector("button.details-button")).Click();
-            Thread.Sleep(15000);
+            Thread.Sleep(30000);
             driver.FindElement(By.ClassName("exit")).Click();
             // Target Second Inventory Item
             driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/div[3]/div/div[3]/div/div/div[4]/div/button")).Click();
-            Thread.Sleep(12000);
+            Thread.Sleep(15000);
             driver.FindElement(By.ClassName("exit")).Click();
             // Select 3rd Inventory Element
             driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/div[3]/div/div[4]/div/div/div[4]/div/button")).Click();
-            Thread.Sleep(12000);
+            Thread.Sleep(15000);
             driver.FindElement(By.ClassName("exit")).Click();
             //Select Viewed Vehicles tab.  
             driver.FindElement(By.CssSelector("a.tab-viewed-vehicles-link > span")).Click();
