@@ -365,11 +365,11 @@ namespace sanity
             //Compare Functionality
             //1.  Navigate to inventory page...     
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma");
-            Thread.Sleep(10000);
+            Thread.Sleep(15000);
             //2. Select two Vehicles to compare.  The checkbox or the Compare button in the row will suffice.  
-
+            Thread.Sleep(10000);
             driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/div[3]/div/div[3]/div/div/div[4]/div[2]/label/span")).Click();
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             driver.FindElement(By.XPath("/html/body/div[3]/div/div[3]/div/div/div/div/div[3]/div/div[4]/div/div/div[4]/div[2]/label/span")).Click();
             Thread.Sleep(10000);
             //3.  Now select the Compare Tab
