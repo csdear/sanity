@@ -134,7 +134,7 @@ namespace sanity
             Thread.Sleep(5000);
             try
             {
-                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Click on a package name for details')]"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Click on package name for details')]"));
 
             }
 
