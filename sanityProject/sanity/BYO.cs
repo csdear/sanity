@@ -131,7 +131,7 @@ namespace sanity
 
             driver.FindElement(By.LinkText("Next")).Click();
             driver.FindElement(By.CssSelector("li.packages-tab.selected")).Click();
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Click on a package name for details')]"));
@@ -147,7 +147,7 @@ namespace sanity
             driver.FindElement(By.LinkText("Prev")).Click();
             driver.FindElement(By.LinkText("Next")).Click();
             driver.FindElement(By.LinkText("Next")).Click();
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Click on accessory name for details')]"));
@@ -159,7 +159,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Wheels')]"));
@@ -171,7 +171,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Technology')]"));
@@ -183,7 +183,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Options')]"));
@@ -195,7 +195,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-
+            Thread.Sleep(5000);
             try
             {
                 Assert.IsTrue(IsElementPresent(By.CssSelector("div.vehicle-image > img")));
@@ -206,7 +206,7 @@ namespace sanity
             }
 
             driver.FindElement(By.LinkText("Next")).Click();
-
+            Thread.Sleep(5000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Required Field')]"));
