@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="AAQform.cs" />
     <Compile Include="Carousel.cs" />
+    <Compile Include="BYO.cs" />
     <Compile Include="Offers.cs" />
     <Compile Include="Explore.cs" />
     <Compile Include="Inventory.cs" />
