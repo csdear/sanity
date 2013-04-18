@@ -406,9 +406,19 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-            Thread.Sleep(5000);
+            //unable to locate button here. intro try statement and more time.    
+            Thread.Sleep(15000);
             //Click the Compare Selected Vehicles button to got back.  
-            driver.FindElement(By.CssSelector("button.compare btn-white")).Click();
+            
+            try
+            {
+                driver.FindElement(By.CssSelector("button.compare btn-white")).Click();
+                
+            }
+            catch
+            {
+                driver.FindElement(By.CssSelector("div.compare-button btn-white-container")).Click();  
+            }
             Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("button.remove")).Click();
             //Details button brings up the monroney page.
