@@ -108,6 +108,7 @@
   <ItemGroup>
     <Compile Include="AAQform.cs" />
     <Compile Include="Carousel.cs" />
+    <Compile Include="Explore.cs" />
     <Compile Include="Inventory.cs" />
     <Compile Include="FamilyPages.cs" />
     <Compile Include="GCMapDealerLink.cs" />

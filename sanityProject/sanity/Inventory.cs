@@ -150,7 +150,7 @@ namespace sanity
             // Narrow Inventory Tab - General Areas. Selections have to be made to enable Colors, Packages tabs etc..  Selection is SPECIFIC (TACOMA) 
 
             driver.FindElement(By.CssSelector("a.narrow-search-link > span")).Click();
-
+            Thread.Sleep(3000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Year')]"));
@@ -163,7 +163,7 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
 
-
+            Thread.Sleep(3000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Model')]"));
@@ -180,7 +180,7 @@ namespace sanity
             driver.FindElement(By.Id("SelectedCab_Access")).Click();
             driver.FindElement(By.Id("SelectedModel_2")).Click();
             driver.FindElement(By.XPath("(//a[contains(text(),'Colors')])[2]")).Click();
-
+            Thread.Sleep(3000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Exterior')]"));
@@ -192,7 +192,7 @@ namespace sanity
 
                 verificationErrors.Append(e.Message);
             }
-
+            Thread.Sleep(3000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Interior')]"));
@@ -210,8 +210,7 @@ namespace sanity
             Thread.Sleep(5000);
             driver.FindElement(By.Id("SelectedInteriorColor_FF13")).Click();
             Thread.Sleep(5000);
-            Thread.Sleep(3000);
-
+            
             driver.FindElement(By.LinkText("Packages")).Click();
 
             try
@@ -227,7 +226,7 @@ namespace sanity
             }
 
             driver.FindElement(By.LinkText("Featured Accessories")).Click();
-
+            Thread.Sleep(3000);
             try
             {
 
@@ -238,7 +237,7 @@ namespace sanity
                 verificationErrors.Append(e.Message);
             }
             driver.FindElement(By.LinkText("All Available Accessories")).Click();
-
+            Thread.Sleep(3000);
             try
             {
 
@@ -251,8 +250,9 @@ namespace sanity
             }
 
             driver.FindElement(By.CssSelector("button.reset")).Click();
+            Thread.Sleep(3000);
             driver.FindElement(By.CssSelector("a.narrow-search-link > span")).Click();
-
+            Thread.Sleep(3000);
             // End Narrow Inventory  
 
 
@@ -270,7 +270,7 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
-
+            Thread.Sleep(3000);
             try
             {
                 Assert.IsTrue(IsElementPresent(By.Id("VehicleImageContainer")));
@@ -280,7 +280,7 @@ namespace sanity
             {
                 verificationErrors.Append(e.Message);
             }
-
+            Thread.Sleep(3000);
             try
             {
                 IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'PRICING AND PAYMENTS')]"));
@@ -308,11 +308,12 @@ namespace sanity
             driver.FindElement(By.LinkText("Wheels")).Click();
             Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("button.exit")).Click();
-
+            Thread.Sleep(3000);
             //End Details Page - Monroney 
 
             //Viewed Vehicles 
             driver.Navigate().Refresh();
+            Thread.Sleep(3000);
             driver.Navigate().GoToUrl("http://southeast.buyatoyota.com/tacoma");
             //Target First Inventory Item. 
             driver.FindElement(By.CssSelector("button.details-button")).Click();
