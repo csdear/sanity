@@ -396,7 +396,7 @@ namespace sanity
 
             try
             {
-                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Please select up to four vehicles to start your comparison. ')]"));
+                IWebElement el = driver.FindElement(By.XPath("//*[contains(.,'Please select up to four vehicles to start your comparison.')]"));
 
             }
 
