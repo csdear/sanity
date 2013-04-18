@@ -143,7 +143,7 @@ namespace sanity
 
             Thread.Sleep(5000);
             driver.FindElement(By.XPath("//a[contains(text(),'Let us help!')]")).Click();
-            Thread.Sleep(15000);
+            Thread.Sleep(30000);
             driver.FindElement(By.ClassName("exit")).Click();
             Thread.Sleep(5000);
 
