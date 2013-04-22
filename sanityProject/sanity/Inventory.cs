@@ -410,8 +410,9 @@ namespace sanity
             Thread.Sleep(15000);
             //Click the Compare Selected Vehicles button to got back.  
             //driver.FindElement(By.CssSelector("button.compare btn-white")).Click();
-            driver.FindElement(By.CssSelector("div.compare-button btn-white-container")).Click();  
-            
+            //[F: Unable to Locate driver.FindElement(By.CssSelector("div.compare-button btn-white-container")).Click();  
+            driver.FindElement(By.XPath("//span[contains(text(), 'Compare Selected Vehicles')]")).Click();
+
             Thread.Sleep(5000);
             driver.FindElement(By.CssSelector("button.remove")).Click();
             //Details button brings up the monroney page.
