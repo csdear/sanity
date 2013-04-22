@@ -7,6 +7,35 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
+//The following extension code is supposed to rectify the WebDriverException : No Response from server for url
+//Untested ao 4/22 -- ref http://watirmelon.com/tag/webdriver/
+
+namespace Extensions
+{
+    public static class WebDriverExtensions
+    {
+        public static SelectElement GetSelectElement(this IWebDriver driver, By by)
+        {
+            return new SelectElement(driver.GetElement(by));
+        }
+        public static IWebElement GetElement(this IWebDriver driver, By by)
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                try
+                {
+                    return driver.FindElement(by);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Exception was raised on locating element: " + e.Message);
+                }
+            }
+            throw new ElementNotVisibleException(by.ToString());
+        }
+    }
+}
+
 namespace sanity
 {
     [TestFixture]
@@ -413,7 +442,7 @@ namespace sanity
             //[F: Unable to Locate driver.FindElement(By.CssSelector("div.compare-button btn-white-container")).Click();  
             driver.FindElement(By.XPath("//span[contains(text(), 'Compare Selected Vehicles')]")).Click();
 
-            Thread.Sleep(5000);
+            Thread.Sleep(20000);
             driver.FindElement(By.CssSelector("button.remove")).Click();
             //Details button brings up the monroney page.
             driver.FindElement(By.CssSelector("button.compare-details-link")).Click();
