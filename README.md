@@ -1,4 +1,5 @@
 sanity
 ======
 Automated Testing using Selenium, C# and Nunit.
-sanity script, QA and PROD testing  
+
+Sanity testing scripts, QA and PROD testing web application.   
